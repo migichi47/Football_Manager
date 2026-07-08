@@ -1,4 +1,4 @@
-export let players = [
+export let allPlayers = [
   // Goalkeepers
   {
     category: 'goalkeepers',

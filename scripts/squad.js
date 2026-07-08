@@ -1,7 +1,30 @@
 import { renderSidebar } from "./utils/sidebar.js";
-import { players } from "../data/players.js";
+import { allPlayers } from "../data/players.js";
 
 let substitutes = [];
+
+// generate first players
+function generateFirstPlayers(structure) {
+  return structure.map(({category, count}) => {
+    const {selected, remaining} = getTopPlayers(category, count, allPlayers);
+
+    return {
+      category,
+      players: selected,
+    }
+  })
+}
+
+const squadStructure = [
+  { category: 'goalkeepers', count: 1 },
+  { category: 'defenders', count: 4 },
+  { category: 'midfielders', count: 3 },
+  { category: 'forwards', count: 3 },
+];
+
+
+const players = generateFirstPlayers(squadStructure);
+console.log(players);
 
 document.addEventListener('DOMContentLoaded', () => {
   renderSidebar();
@@ -46,17 +69,13 @@ function getPosition(position) {
 }
 
 // function to select best players
-function getTopPlayers(categoryName, count) {
+function getTopPlayers(categoryName, count, players) {
   const category = players.find(cat => cat.category === categoryName);
 
   if (!category) return [];
 
   const sorted =  category.players
-    .slice().sort((a, b) => {
-      if (b.rating !== a.rating) {
-        return b.rating - a.rating
-      }
-    });
+    .slice().sort((a, b) => { b.rating - a.rating });
 
     return {
         selected: sorted.slice(0, count).sort((a,b) => b.position - a.position),
@@ -67,17 +86,17 @@ function getTopPlayers(categoryName, count) {
 let isNewUser = localStorage.getItem('userState') || 'true';
 
 if (isNewUser === 'true') {
-  renderStartingTeam();
+  renderStartingTeam(players);
   localStorage.setItem('userState', 'false');
 } else {
   renderSquad();
 }
 
-localStorage.removeItem('userState');
+// localStorage.removeItem('userState');
 
 
 // function to render new gamers
-function renderStartingTeam() {
+function renderStartingTeam(players) {
   const messages = [
     'You have been given a starting squad of 16 EPL players',
     'Goalkeepers',
@@ -148,9 +167,9 @@ function renderStartingTeam() {
 
 
 function renderPlayers(categoryName, count, containerSelector) {
-  const selectedPlayers = getTopPlayers(categoryName, count).selected;
-
-  substitutes.push(getTopPlayers(categoryName,count).remaining);
+  const {selected, remaining} = getTopPlayers(categoryName, count, players);
+  let selectedPlayers = selected;
+  substitutes.push(...remaining);
 
   const container = document.querySelector(containerSelector);
   if (!container || selectedPlayers.length === 0) return;
