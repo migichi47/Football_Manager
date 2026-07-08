@@ -73,7 +73,7 @@ if (isNewUser === 'true') {
   renderSquad();
 }
 
-localStorage.removeItem('userState');
+// localStorage.removeItem('userState');
 
 
 // function to render new gamers

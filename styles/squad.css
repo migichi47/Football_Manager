@@ -38,6 +38,105 @@
   z-index: -1;
 }
 
+/* player */
+.player {
+  position: relative;
+  border: 1px solid white;
+  max-width: 20%;
+  height: 130px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+
+.player-rare {
+  background-color: rgba(41, 41, 245, 0.744);
+}
+
+.player-elite {
+  background-color: rgba(0, 255, 174, 0.723);
+}
+.player-legendary {
+  background-color: rgba(233, 3, 118, 0.601);
+}
+
+.player-superstar {
+  background-color: rgba(204, 255, 2, 0.648);
+}
+
+.player-normal {
+  background-color: rgba(0, 0, 0, 0.607);
+  color: white;
+}
+
+.name {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.player-rare,
+.player-elite,
+.player-legendary,
+.player-superstar {
+  color: black;
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.player img {
+  background-color: rgb(0, 0, 0);
+  height: 80%;
+  width: 100%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.player-details {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  bottom: 3px;
+  left: 2px;
+  right: 2px;
+  font-size: 20px;
+}
+
+.name-big {
+  font-size: 16px;
+}
+
+.player-info {
+  position: absolute;
+  bottom: 96px;
+  display: grid;
+  grid-template-columns: 40px 40px;
+  gap: 20%;
+  font-weight: 800;
+  color: black;
+  align-items: center;
+}
+
+.rating {
+  padding: 4px 2px 0 2px;
+  font-size: 12px;
+}
+
+.position {
+  padding: 5px 2px 0 2px;
+  font-size: 8px;
+}
+
+.position,
+.rating {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
 
 
 /* formation styling */
@@ -48,15 +147,18 @@
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  width: 92%;
+  width: 95vw;
   margin: 0 auto;
   border-radius: 70px;
+  height: auto;
+  padding: 10px;
 }
 
 .midfielders-row,
 .forwards-row,
 .defenders-row {
-  gap: 20px;
+  gap: 2%;
+  width: inherit;
   display: flex;
   justify-content: center;
 }
@@ -64,6 +166,7 @@
 .goalkeeper-row {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .manager-section {
