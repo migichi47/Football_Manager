@@ -69,12 +69,10 @@ body {
 
 /* manager */
 .manager {
-  position: absolute;
-  bottom: 0;
-  left: 200px;
+  position: relative;
   border: 1px solid white;
-  width: 140px;
-  height: 200px;
+  width: 110px;
+  height: 150px;
   background-color: black;
   color: white;
   border-radius: 30px;
@@ -94,13 +92,13 @@ body {
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  bottom: 10px;
-  left: 35px;
+  bottom: 8px;
+  left: 15px;
   font-size: 12px;
 }
 
 .player {
-  position: absolute;
+  position: relative;
   border: 1px solid white;
   width: 100px;
   height: 130px;

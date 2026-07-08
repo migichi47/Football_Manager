@@ -14,7 +14,7 @@ if (isNewUser === 'true') {
   localStorage.setItem('userState', 'false');
 }
 
-localStorage.removeItem('userState');
+// localStorage.removeItem('userState');
 
 
 // function to render new gamers
@@ -28,6 +28,8 @@ function renderStartingTeam() {
   ];
 
   let messageDisplay = document.querySelector('.js-messages');
+
+  messageDisplay.classList.add('messages');
   messageDisplay.innerHTML = 'You have been given a team of 16 players to start with';
   let delay = 3000;
 
@@ -42,7 +44,9 @@ function renderStartingTeam() {
 
         // adding style class so that it only displays when timeout is running
         document.querySelector('.js-category').classList.add('category');
-        messageDisplay.classList.remove('messages');
+
+        // making the welcome popup to act as a cover when timeout starts
+        messageDisplay.classList.add('messages-cover');
         
         // adjusting name font when length is big
         const nameClass = player.name.length > 8
@@ -54,39 +58,29 @@ function renderStartingTeam() {
         switch (player.position) {
           case 1:
             position = 'GK';
-            playerCategory = 'Goalkeepers'
-            break;
+            playerCategory = 'Goalkeepers'; break;
           case 2:
             position = 'RB';
-            playerCategory = 'Defenders'
-            break;
+            playerCategory = 'Defenders'; break;
           case 3: 
             position = 'CB';
-            playerCategory = 'Defenders'
-            break;
+            playerCategory = 'Defenders'; break;
           case 5:
             position = 'LB';
-            playerCategory = 'Defenders';
-            break;
+            playerCategory = 'Defenders'; break;
           case 6:
             position = 'DM';
-            playerCategory = 'Midfielders';
-            break;
+            playerCategory = 'Midfielders'; break;
           case 7: position = 'LW';
-            playerCategory = 'Forwards';
-            break;
+            playerCategory = 'Forwards'; break;
           case 8:position = 'AM';
-            playerCategory = 'Midfielders';
-            break;
+            playerCategory = 'Midfielders'; break;
           case 9: position = 'CF';
-            playerCategory = 'Forwards';
-            break;
+            playerCategory = 'Forwards'; break;
           case 10: position = 'CM';
-            playerCategory = 'Midfielders';
-            break;
+            playerCategory = 'Midfielders'; break;
           case 11: position = 'RW';
-            playerCategory = 'Forwards';
-            break;
+            playerCategory = 'Forwards'; break;
         };
 
         switch (player.position) {
@@ -96,7 +90,7 @@ function renderStartingTeam() {
           case 7 || 9 || 11: playerCategory = 'Forwards'; break;
         };
 
-        document.querySelector('.js-squad').innerHTML = 
+        document.querySelector('.js-first-squad').innerHTML = 
           `
             <div class="player">
               <img src="${player.image}" alt="" />
@@ -111,10 +105,16 @@ function renderStartingTeam() {
           `;  
 
           document.querySelector('.js-category').innerHTML = playerCategory;
-        }, delay) 
+        }, delay);
 
-        delay += 2000;
-      }
-    );
+      delay += 1500;
+    });
   });
+
+  setTimeout(() => {
+    messageDisplay.classList.remove('messages');
+    document.querySelector('.js-category').classList.remove('category');
+    document.querySelector('.js-squad').innerHTML = '';
+
+  }, delay);
 };
