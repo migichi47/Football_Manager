@@ -15,6 +15,13 @@ const squadStructure = [
 
 if (isNewUser) {
   players = generateFirstPlayers(squadStructure);
+
+  let idCounter = 1;
+  players.forEach(category => {
+    category.players.forEach(player => {
+      player.id = idCounter++;
+    });
+  });
   localStorage.setItem('players', JSON.stringify(players));
   renderStartingTeam(players);
   localStorage.setItem('isNewUser', JSON.stringify(false));
@@ -289,7 +296,8 @@ substitutes.forEach((category) => {
 
 // swapping substitution mechanism
 
-let selectedPlayer;
+let selectedId;
+let selectedElement;
 
 document.addEventListener('click', (e) => {
   const playerCard = e.target.closest('.js-player');
@@ -298,23 +306,40 @@ document.addEventListener('click', (e) => {
 
   const id = Number(playerCard.dataset.id);
 
-  if(!selectedPlayer) {
-    selectedPlayer = playerCard;
+  if(selectedId = null) {
+    selectedId = id;
+    selectedElement = playerCard;
     playerCard.classList.add('active');
     return;
   }
 
-  const secondPlayer = playerCard;
+  if(selectedId === id) return;
 
-  if(selectedPlayer === secondPlayer) return;
+  const player1 = findPlayerById(selectedId);
+  const player2 = findPlayerById(id);
 
-  const temporal = selectedPlayer.innerHTML;
-  selectedPlayer.innerHTML = secondPlayer.innerHTML;
-  secondPlayer.innerHTML = temporal;
+  // const temporalPosition = player1.position;
+  // player1.position = player2.position;
+  // player2.position = temporalPosition;
+  console.log(player1, player2)
 
-  selectedPlayer.classList.remove('active');
-  selectedPlayer = null;
+  localStorage.setItem('players', JSON.stringify(players));
+  renderSquad();
+
+  selectedElement.classList.remove('active');
+  selectedId = null;
+  selectedElement = null;
 })
 
+
+function findPlayerById(id) {
+  players.forEach(category => {
+    category.players.forEach(player => {
+      if(player.id === id) {
+        return player;
+      }
+    })
+  })
+}
 
 
