@@ -49,15 +49,17 @@ function getTopPlayers(categoryName, count) {
 
   if (!category) return [];
 
-  return category.players
+  const sorted =  category.players
     .slice().sort((a, b) => {
       if (b.rating !== a.rating) {
         return b.rating - a.rating
       }
-    })
-    .slice(0, count).sort((a,b) => {
-      return b.position - a.position;
-    })
+    });
+
+    return {
+        selected: sorted.slice(0, count).sort((a,b) => b.position - a.position),
+        remaining: sorted.slice(count),
+    }
 }
 
 let isNewUser = localStorage.getItem('userState') || 'true';
@@ -140,14 +142,18 @@ function renderStartingTeam() {
 
 // generating squad HTML
 
-function renderPlayers(categoryName, count, containerSelector) {
-  const selectedPlayers = getTopPlayers(categoryName, count);
-  const container = document.querySelector(containerSelector);
+let substitutes = [];
 
+
+function renderPlayers(categoryName, count, containerSelector) {
+  const selectedPlayers = getTopPlayers(categoryName, count).selected;
+
+  substitutes.push(getTopPlayers(categoryName,count).remaining);
+
+  const container = document.querySelector(containerSelector);
   if (!container || selectedPlayers.length === 0) return;
 
   let html = '';
-
   selectedPlayers.forEach(player => {
     const { position } = getPosition(player.position);
     let addedClass = 'player-normal';
@@ -183,3 +189,16 @@ renderPlayers('goalkeepers', 1, '.js-goalkeeper-row');
 renderPlayers('defenders', 4, '.js-defenders-row');
 renderPlayers('midfielders', 3, '.js-midfielders-row');
 renderPlayers('forwards', 3, '.js-forwards-row');
+
+
+
+// substitutes
+console.log(substitutes);
+
+document.querySelector('.js-substitutes-btn').addEventListener('click', () => {
+  document.querySelector('.substitutes-section').classList.toggle('active');
+});
+
+document.querySelector('.js-substitutes-close-btn').addEventListener('click', () => {
+  document.querySelector('.substitutes-section').classList.toggle('active');
+});
