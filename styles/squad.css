@@ -10,11 +10,12 @@
 .category {
   position: absolute;
   top: 230px;
-  margin-left: 5px;
+  margin-left: -8px;
   left: 35%;
   height: auto;
   background-color: rgba(255, 255, 255, 0.863);
-  width: 90px;
+  text-align: center;
+  width: 120px;
   padding: 5px;
   border-radius: 20px;
   font-size: 15px;
