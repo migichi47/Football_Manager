@@ -42,7 +42,6 @@
 .player {
   position: relative;
   border: 1px solid white;
-  max-width: 20%;
   height: 130px;
   background-color: black;
   color: white;
