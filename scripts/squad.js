@@ -35,16 +35,16 @@ function renderStartingTeam() {
 
     category.players.forEach((player) => 
       setTimeout(() => {
-        document.querySelector('.js-squad').innerHTML = `
-        <div>
-          <div class="player">
-            <img src="${player.image}" alt="" />
-            <div class="player_details">
-              <div class="name">${player.name}</div>
-              <div class="xp">${player.rating}</div>
+        document.querySelector('.js-squad').innerHTML = 
+          `
+            <div class="player">
+              <img src="${player.image}" alt="" />
+              <div class="player_details">
+                <div class="name">${player.name}</div>
+                <div class="xp">${player.rating}</div>
+              </div>
             </div>
-          </div>
-        </div>`
+          `
         }, 1000 * player.id)
       )
 

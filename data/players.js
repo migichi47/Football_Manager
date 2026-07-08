@@ -6,7 +6,8 @@ export let players = [
     players: [
       {
         id: 1,
-        name: 'Bernd Leno',
+        name: 'Leno',
+        fullname: 'Bernd Leno',
         rating: 70,
         club: 'Liverpool',
         image: '',
@@ -14,7 +15,8 @@ export let players = [
       },
       {
         id: 2,
-        name: 'Dean Henderson',
+        name: 'Henderson',
+        fullname: 'Dean Henderson',
         rating: 68,
         club: 'Man City',
         image: '',
@@ -29,7 +31,8 @@ export let players = [
     players: [
       {
         id: 3,
-        name: 'Virgil van Dijk',
+        name: 'Van Dijk',
+        fullname: 'Virgil van Dijk',
         rating: 90,
         club: 'Liverpool',
         image: '',
@@ -37,7 +40,8 @@ export let players = [
       },
       {
         id: 4,
-        name: 'Rúben Dias',
+        name: 'Dias',
+        fullname: 'Rúben Dias',
         rating: 88,
         club: 'Man City',
         image: '',
@@ -45,7 +49,8 @@ export let players = [
       },
       {
         id: 5,
-        name: 'Gabriel Gudmundsson',
+        name: 'Gudmundsson',
+        fullname: 'Gabriel Gudmundsson',
         rating: 88,
         club: 'Man City',
         image: '',
@@ -53,7 +58,8 @@ export let players = [
       },
       {
         id: 6,
-        name: 'Milos Kerkez',
+        name: 'Kerkez',
+        fullname: 'Milos Kerkez',
         rating: 88,
         club: 'Man City',
         image: '',
@@ -61,7 +67,8 @@ export let players = [
       },
       {
         id: 7,
-        name: 'Michael Keane',
+        name: 'Keane',
+        fullname: 'Michael Keane',
         rating: 88,
         club: 'Man City',
         image: '',
@@ -75,6 +82,7 @@ export let players = [
       {
         id: 8,
         name: 'Zubimendi',
+        fullname: 'Martin Zubimendi',
         rating: 90,
         club: 'Liverpool',
         image: '',
@@ -82,7 +90,8 @@ export let players = [
       },
       {
         id: 9,
-        name: 'Manuel Ugarte',
+        name: 'Ugarte',
+        fullname: 'Manuel Ugarte',
         rating: 88,
         club: 'Man City',
         image: '',
@@ -90,7 +99,8 @@ export let players = [
       },
       {
         id: 10,
-        name: `Luke O'Nien`,
+        name: `O'Nien`,
+        fullname: `Luke O'Nien`,
         rating: 88,
         club: 'Man City',
         image: '',
@@ -98,7 +108,8 @@ export let players = [
       },
       {
         id: 11,
-        name: 'Xavi Simons',
+        name: 'Simons',
+        fullname: 'Xavi Simons',
         rating: 88,
         club: 'Man City',
         image: '',
@@ -106,7 +117,8 @@ export let players = [
       },
       {
         id: 12,
-        name: 'Frank Onyeka',
+        name: 'Onyeka',
+        fullname: 'Frank Onyeka',
         rating: 88,
         club: 'Man City',
         image: '',
@@ -119,7 +131,8 @@ export let players = [
     players: [
       {
         id: 13,
-        name: 'Omar Marmoush',
+        name: 'Marmoush',
+        fullname: 'Omar Marmoush',
         rating: 90,
         club: 'Liverpool',
         image: '',
@@ -127,7 +140,8 @@ export let players = [
       },
       {
         id: 14,
-        name: 'Morgan Rogers',
+        name: 'Rogers',
+        fullname: 'Morgan Rogers',
         rating: 88,
         club: 'Man City',
         image: '',
@@ -136,6 +150,7 @@ export let players = [
       {
         id: 14,
         name: 'Savinho',
+        fullname: 'Sávio Moreira de Oliveira',
         rating: 80,
         club: 'Man City',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVAoCcckWWi8sND_PbodkkU1EhQ3VTWOGBmNWpzN0XB6Tl9UT1msvp1U-HxIX6bAQwp_c-ABBOoAYN-5fTysJhJFOnlCqTzwEIzimFXT_xGQ&s=10',
