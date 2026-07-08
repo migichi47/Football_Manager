@@ -97,15 +97,26 @@
 
 .player-details {
   position: absolute;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 25px;
   align-items: center;
   text-align: center;
   margin: 0 auto;
   bottom: 3px;
   left: 2px;
   right: 2px;
-  font-size: 20px;
+  padding: 0 5px;
+}
+
+.player-details span {
+  cursor: pointer;
+  color: white;
+  height: 100%;
+  width: 100%;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.56);
+  border-radius: 50%;
 }
 
 .name-big {
@@ -138,6 +149,11 @@
   border-radius: 50%;
   width: 20px;
   height: 20px;
+}
+
+.active {
+  transform: translateY(-10px);
+  transition: 0.5s ease;
 }
 
 

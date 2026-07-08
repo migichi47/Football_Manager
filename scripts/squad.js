@@ -189,10 +189,14 @@ function renderPlayers(categoryName, count, containerSelector) {
     } 
 
     html += `
-      <div class="player ${addedClass}">
+      <div class="player ${addedClass} js-player" id="${player.name}">
         <img src="${player.image}" alt="" />
         <div class="player-details">
           <div class="name">${player.name}</div>
+          <span 
+            class="js-swap-btn" 
+            data-id = "${player.name}"
+          >&#8644;</span>
           <div class="player-info">
             <div class="position ${addedClass}">${position}</div>
             <div class="rating ${addedClass}">${player.rating}</div>
@@ -254,7 +258,6 @@ document.querySelector('.js-substitutes-close-btn').addEventListener('click', ()
 
 // rendering the remaining players as substitutes
 
-console.log(substitutes);
 substitutes.forEach((category) => {
   category.players.forEach((substitute) => {
     let addedClass = 'player-normal';
@@ -282,4 +285,36 @@ substitutes.forEach((category) => {
     `;
   });
 });
+
+
+// swapping substitution mechanism
+
+let selectedPlayer;
+
+document.addEventListener('click', (e) => {
+  const playerCard = e.target.closest('.js-player');
+
+  if(!playerCard) return;
+
+  const id = Number(playerCard.dataset.id);
+
+  if(!selectedPlayer) {
+    selectedPlayer = playerCard;
+    playerCard.classList.add('active');
+    return;
+  }
+
+  const secondPlayer = playerCard;
+
+  if(selectedPlayer === secondPlayer) return;
+
+  const temporal = selectedPlayer.innerHTML;
+  selectedPlayer.innerHTML = secondPlayer.innerHTML;
+  secondPlayer.innerHTML = temporal;
+
+  selectedPlayer.classList.remove('active');
+  selectedPlayer = null;
+})
+
+
 
