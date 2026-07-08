@@ -6,11 +6,12 @@ export function renderSidebar() {
     <ul>
       <li><a href="/home.html">Home</a></li>
       <li><a href="/squad.html">Squad</a></li>
-      <li><a href="#">Manager</a></li>
-      <li><a href="#">Store</a></li>
+      <li><a href="#">Transfers</a></li>
+      <li><a href="#">Managers</a></li>
       <li><a href="#">Missions</a></li>
       <li><a href="#">Notifications</a></li>
       <li><a href="#">Profile</a></li>
+      <li><a href="#">Store</a></li>
     </ul>
   `
 

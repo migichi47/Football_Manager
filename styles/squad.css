@@ -112,17 +112,17 @@ hr {
 }
 
 .substitutes-btn {
-  background-color: rgb(10, 255, 10);
+  background-color: rgba(10, 255, 10, 0.624);
 }
 
 .formation-btn {
-  background-color: rgba(230, 10, 255, 0.708);
+  background-color: rgba(230, 10, 255, 0.631);
   font-size: 12px;
   padding: 0 10px;
 }
 
 .auto-pick-btn {
-  background-color: pink;
+  background-color: rgba(255, 192, 203, 0.841);
 }
 
 
