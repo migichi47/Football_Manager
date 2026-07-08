@@ -91,3 +91,32 @@ hr {
 }
 
 
+.button-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  top: 220px;
+  left: 10%;
+}
+
+.button-container button {
+  height: 30px;
+  border: 0;
+  border-radius: 20px;
+  transition: 0.2s ease;
+}
+
+.button-container button:hover {
+  transform: translateY(-3px);
+}
+
+.substitutes-btn {
+  background-color: rgb(10, 255, 10);
+}
+
+.formation-btn {
+  background-color: rgba(230, 10, 255, 0.708);
+  font-size: 12px;
+  padding: 0 10px;
+}
