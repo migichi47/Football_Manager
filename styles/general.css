@@ -118,17 +118,22 @@ body {
 
 .player_details {
   position: absolute;
-  display: flex;
-  gap: 10%;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
   text-align: center;
   margin: 0 auto;
   bottom: 3px;
-  left: 5px;
+  left: 2px;
+  right: 2px;
   font-size: 20px;
 }
 
 .name {
   color: rgb(0, 238, 255);
-  font-size: large;
+  font-size: 15px;
+}
+
+.name-big {
+  font-size: 12px;
 }
