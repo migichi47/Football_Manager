@@ -32,16 +32,44 @@ function renderStartingTeam() {
     category.players.forEach((player) => 
       setTimeout(() => {
         
+        // adjusting name font when length is big
         const nameClass = player.name.length > 8
         ? 'name-big' : '';
+
+        let position
+        switch (player.position) {
+          case 1: position = 'GK';
+          break;
+          case 2: position = 'RB';
+          break;
+          case 3: position = 'CB';
+          break;
+          case 5: position = 'LB';
+          break;
+          case 6: position = 'DM';
+          break;
+          case 7: position = 'LW';
+          break;
+          case 8: position = 'AM';
+          break;
+          case 9: position = 'CF';
+          break;
+          case 10: position = 'CM';
+          break;
+          case 11: position = 'RW';
+          break;
+        }
 
         document.querySelector('.js-squad').innerHTML = 
           `
             <div class="player">
               <img src="${player.image}" alt="" />
-              <div class="player_details">
+              <div class="player-details">
                 <div class="name ${nameClass}">${player.name}</div>
-                <div class="xp">${player.rating}</div>
+                <div class = "player-info">
+                  <div class= "position">${position}</div>
+                  <div class="rating">${player.rating}</div>
+                </div>
               </div>
             </div>
           `;
