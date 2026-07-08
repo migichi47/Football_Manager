@@ -29,15 +29,6 @@ export let players = [
     category: 'defenders',
     players: [
       {
-        id: 3,
-        name: 'Van Dijk',
-        fullname: 'Virgil van Dijk',
-        rating: 90,
-        club: 'Liverpool',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6eHrQDrU-_XskeGe4kLcNMZrotIuOUvOPaR4vbSOPOQ&s',
-        position: 3,
-      },
-      {
         id: 4,
         name: 'Dias',
         fullname: 'Rúben Dias',
@@ -48,11 +39,11 @@ export let players = [
       },
       {
         id: 5,
-        name: 'Gudmundsson',
-        fullname: 'Gabriel Gudmundsson',
-        rating: 77,
+        name: 'Bogle',
+        fullname: 'Jayden Bogle',
+        rating: 75,
         club: 'Leeds United',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqnkpVwxzlirkzyuAyAARe2o1uL5ZoGZlAtJFf34c3FA&s=10',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVV9ws-bLKHTWZtQ4OBhRmCInru_zCWpdOhCwko0fQ5Q&s',
         position: 5,
       },
       {
@@ -62,17 +53,26 @@ export let players = [
         rating: 82,
         club: 'Liverpool',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbVHa7o0-zo50T7qZc_js-RZ9wFIsqC6K888pSUR9KOw&s=10',
-        position: 5,
+        position: 2,
       },
       {
         id: 7,
         name: 'Keane',
         fullname: 'Michael Keane',
         rating: 73,
-        club: 'Man City',
+        club: '',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSF6pcFJdiYrDeTzmUwnBdbhzYPBnVgK-IJZ6rKszneQ&s=10',
         position: 3,
-      }
+      },
+      {
+        id: 3,
+        name: 'Van Dijk',
+        fullname: 'Virgil van Dijk',
+        rating: 90,
+        club: 'Liverpool',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6eHrQDrU-_XskeGe4kLcNMZrotIuOUvOPaR4vbSOPOQ&s',
+        position: 3,
+      },
     ]
   },
   {
@@ -112,7 +112,7 @@ export let players = [
         rating: 84,
         club: 'Tottenham',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq66J-pTeS6VTJERDN13zYAUQGILM93MgSXZht_4kbfQ&s=10',
-        position: 8 || 10,
+        position: 8,
       },
       {
         id: 12,

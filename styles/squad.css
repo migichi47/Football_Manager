@@ -95,7 +95,7 @@ hr {
   position: absolute;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   top: 220px;
   left: 10%;
 }
@@ -119,4 +119,8 @@ hr {
   background-color: rgba(230, 10, 255, 0.708);
   font-size: 12px;
   padding: 0 10px;
+}
+
+.auto-pick-btn {
+  background-color: pink;
 }

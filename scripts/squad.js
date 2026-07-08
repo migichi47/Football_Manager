@@ -14,13 +14,13 @@ function getPosition(position) {
           playerPosition = 'GK';
           playerCategory = 'Goalkeepers'; break;
         case 2:
-          playerPosition = 'RB';
+          playerPosition = 'LB';
           playerCategory = 'Defenders'; break;
         case 3: 
           playerPosition = 'CB';
           playerCategory = 'Defenders'; break;
         case 5:
-          playerPosition = 'LB';
+          playerPosition = 'RB';
           playerCategory = 'Defenders'; break;
         case 6:
           playerPosition = 'DM';
@@ -50,9 +50,14 @@ function getTopPlayers(categoryName, count) {
   if (!category) return [];
 
   return category.players
-    .slice()
-    .sort((a, b) => b.rating - a.rating)
-    .slice(0, count);
+    .slice().sort((a, b) => {
+      if (b.rating !== a.rating) {
+        return b.rating - a.rating
+      }
+    })
+    .slice(0, count).sort((a,b) => {
+      return b.position - a.position;
+    })
 }
 
 let isNewUser = localStorage.getItem('userState') || 'true';
@@ -130,8 +135,6 @@ function renderStartingTeam() {
 
   }, delay);
 };
-
-
 
 
 
