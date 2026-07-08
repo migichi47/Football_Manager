@@ -29,7 +29,7 @@ export let players = [
     category: 'defenders',
     players: [
       {
-        id: 4,
+        id: 3,
         name: 'Dias',
         fullname: 'Rúben Dias',
         rating: 86,
@@ -38,7 +38,7 @@ export let players = [
         position: 3,
       },
       {
-        id: 5,
+        id: 4,
         name: 'Bogle',
         fullname: 'Jayden Bogle',
         rating: 75,
@@ -47,7 +47,7 @@ export let players = [
         position: 5,
       },
       {
-        id: 6,
+        id: 5,
         name: 'Kerkez',
         fullname: 'Milos Kerkez',
         rating: 82,
@@ -56,7 +56,7 @@ export let players = [
         position: 2,
       },
       {
-        id: 7,
+        id: 6,
         name: 'Keane',
         fullname: 'Michael Keane',
         rating: 73,
@@ -65,7 +65,7 @@ export let players = [
         position: 3,
       },
       {
-        id: 3,
+        id: 7,
         name: 'Van Dijk',
         fullname: 'Virgil van Dijk',
         rating: 90,
@@ -147,7 +147,7 @@ export let players = [
         position: 7 || 8,
       },
       {
-        id: 14,
+        id: 15,
         name: 'Savinho',
         fullname: 'Sávio Moreira de Oliveira',
         rating: 82,
@@ -158,10 +158,3 @@ export let players = [
     ]
   },
 ];
-
-// 'Defenders',
-    // 'Ryan Giles, Leif Davis, Gabriel Gudmundsson, Milos Kerkez, Michael Keane',
-    // 'Midfielders',
-    // `Martin Zubimendi, Manuel Ugarte, Luke O'Nien, Xavi Simons, Frank Onyeka`,
-    // 'Forwards',
-    // 'Omar Marmoush, Morgan Rogers, Luis Sinisterra, Gustavo Nunes, Savinho',

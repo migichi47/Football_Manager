@@ -156,8 +156,8 @@ function renderPlayers(categoryName, count, containerSelector) {
   let html = '';
   selectedPlayers.forEach(player => {
     const { position } = getPosition(player.position);
+    
     let addedClass = 'player-normal';
-
     if(player.rating >= 75 && player.rating < 80 ) {
         addedClass = 'player-rare';
     } else if(player.rating >= 80 && player.rating < 85 ) {
@@ -193,7 +193,6 @@ renderPlayers('forwards', 3, '.js-forwards-row');
 
 
 // substitutes
-console.log(substitutes);
 
 document.querySelector('.js-substitutes-btn').addEventListener('click', () => {
   document.querySelector('.substitutes-section').classList.toggle('active');
@@ -202,3 +201,34 @@ document.querySelector('.js-substitutes-btn').addEventListener('click', () => {
 document.querySelector('.js-substitutes-close-btn').addEventListener('click', () => {
   document.querySelector('.substitutes-section').classList.toggle('active');
 });
+
+// rendering the remaining players as substitutes
+
+substitutes.forEach((category) => {
+  category.forEach((substitute) => {
+    let addedClass = 'player-normal';
+    if(substitute.rating >= 75 && substitute.rating < 80 ) {
+        addedClass = 'player-rare';
+    } else if(substitute.rating >= 80 && substitute.rating < 85 ) {
+        addedClass = 'player-elite';
+    } else if(substitute.rating >= 85 && substitute.rating < 90 ) {
+        addedClass = 'player-legendary';
+    } else if(substitute.rating >= 90) {
+        addedClass = 'player-superstar';
+    } 
+
+    document.querySelector('.js-substitutes').innerHTML += `
+      <div class="player ${addedClass}">
+        <img src="${substitute.image}" alt="" />
+        <div class="player-details">
+          <div class="name">${substitute.name}</div>
+          <div class="player-info">
+            <div class="position ${addedClass}">${getPosition(substitute.position).position}</div>
+            <div class="rating ${addedClass}">${substitute.rating}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+});
+
