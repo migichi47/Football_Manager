@@ -43,6 +43,18 @@ function getPosition(position) {
   }
 }
 
+// function to select best players
+function getTopPlayers(categoryName, count) {
+  const category = players.find(cat => cat.category === categoryName);
+
+  if (!category) return [];
+
+  return category.players
+    .slice()
+    .sort((a, b) => b.rating - a.rating)
+    .slice(0, count);
+}
+
 let isNewUser = localStorage.getItem('userState') || 'true';
 
 if (isNewUser === 'true') {
@@ -125,25 +137,35 @@ function renderStartingTeam() {
 
 // generating squad HTML
 
+function renderPlayers(categoryName, count, containerSelector) {
+  const selectedPlayers = getTopPlayers(categoryName, count);
+  const container = document.querySelector(containerSelector);
 
-const goalkeepers = players.find(cat => cat.category === 'goalkeepers');
-const selectedGoalKeeper = goalkeepers.players.reduce((bestPlayer, player) => {
-  return player.rating > bestPlayer.rating ? player : bestPlayer
-});
+  if (!container || selectedPlayers.length === 0) return;
 
+  let html = '';
 
-const {position, category} = getPosition(selectedGoalKeeper.position);
+  selectedPlayers.forEach(player => {
+    const { position } = getPosition(player.position);
 
-document.querySelector('.js-goalkeeper-row')
-.innerHTML = `
-  <div class="player">
-    <img src="${selectedGoalKeeper.image}" alt="" />
-    <div class="player-details">
-      <div class="name">${selectedGoalKeeper.name}</div>
-      <div class = "player-info">
-        <div class= "position">${position}</div>
-        <div class="rating">${selectedGoalKeeper.rating}</div>
+    html += `
+      <div class="player">
+        <img src="${player.image}" alt="" />
+        <div class="player-details">
+          <div class="name">${player.name}</div>
+          <div class="player-info">
+            <div class="position">${position}</div>
+            <div class="rating">${player.rating}</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-`
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+renderPlayers('goalkeepers', 1, '.js-goalkeeper-row');
+renderPlayers('defenders', 4, '.js-defenders-row');
+renderPlayers('midfielders', 3, '.js-midfielders-row');
+renderPlayers('forwards', 3, '.js-forwards-row');
