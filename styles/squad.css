@@ -1,8 +1,8 @@
 
 .js-first-squad {
   position: absolute;
-  left: 38%;
-  top: 35%;
+  left: 35%;
+  top: 270px;
   width: auto;
   height: auto;
 }
@@ -10,7 +10,8 @@
 .category {
   position: absolute;
   top: 230px;
-  left: 192px;
+  margin-left: 5px;
+  left: 35%;
   height: auto;
   background-color: rgba(255, 255, 255, 0.863);
   width: 90px;
@@ -24,7 +25,8 @@
 .messages {
   position: absolute;
   top: 220px;
-  left: 100px;
+  margin-left: -93px;
+  left: 35%;
   background-color: rgb(204, 255, 0);
   width: 300px;
   height: 200px;
@@ -113,8 +115,8 @@
   position: absolute;
   bottom: 96px;
   display: grid;
-  grid-template-columns: 40px 40px;
-  gap: 20%;
+  grid-template-columns: 20px 20px;
+  gap: 55px;
   font-weight: 800;
   color: black;
   align-items: center;

@@ -224,9 +224,11 @@ function renderSquad() {
 
 // substitutes
 
-document.querySelector('.js-substitutes-btn').addEventListener('click', () => {
+if(document.querySelector('.js-substitutes-btn')) {
+  document.querySelector('.js-substitutes-btn').addEventListener('click', () => {
   document.querySelector('.substitutes-section').classList.toggle('active');
 });
+}
 
 document.querySelector('.js-substitutes-close-btn').addEventListener('click', () => {
   document.querySelector('.substitutes-section').classList.toggle('active');
