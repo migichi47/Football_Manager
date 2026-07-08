@@ -5,7 +5,43 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSidebar();
 });
 
+function getPosition(position) {
+  let playerPosition;
+  let playerCategory;
 
+      switch (position) {
+        case 1:
+          playerPosition = 'GK';
+          playerCategory = 'Goalkeepers'; break;
+        case 2:
+          playerPosition = 'RB';
+          playerCategory = 'Defenders'; break;
+        case 3: 
+          playerPosition = 'CB';
+          playerCategory = 'Defenders'; break;
+        case 5:
+          playerPosition = 'LB';
+          playerCategory = 'Defenders'; break;
+        case 6:
+          playerPosition = 'DM';
+          playerCategory = 'Midfielders'; break;
+        case 7: playerPosition = 'LW';
+          playerCategory = 'Forwards'; break;
+        case 8:playerPosition = 'AM';
+          playerCategory = 'Midfielders'; break;
+        case 9: playerPosition = 'CF';
+          playerCategory = 'Forwards'; break;
+        case 10: playerPosition = 'CM';
+          playerCategory = 'Midfielders'; break;
+        case 11: playerPosition = 'RW';
+          playerCategory = 'Forwards'; break;
+      };
+
+  return {
+    position: playerPosition,
+    category: playerCategory,
+  }
+}
 
 let isNewUser = localStorage.getItem('userState') || 'true';
 
@@ -52,43 +88,7 @@ function renderStartingTeam() {
         const nameClass = player.name.length > 8
         ? 'name-big' : '';
 
-        let position;
-        let playerCategory;
-
-        switch (player.position) {
-          case 1:
-            position = 'GK';
-            playerCategory = 'Goalkeepers'; break;
-          case 2:
-            position = 'RB';
-            playerCategory = 'Defenders'; break;
-          case 3: 
-            position = 'CB';
-            playerCategory = 'Defenders'; break;
-          case 5:
-            position = 'LB';
-            playerCategory = 'Defenders'; break;
-          case 6:
-            position = 'DM';
-            playerCategory = 'Midfielders'; break;
-          case 7: position = 'LW';
-            playerCategory = 'Forwards'; break;
-          case 8:position = 'AM';
-            playerCategory = 'Midfielders'; break;
-          case 9: position = 'CF';
-            playerCategory = 'Forwards'; break;
-          case 10: position = 'CM';
-            playerCategory = 'Midfielders'; break;
-          case 11: position = 'RW';
-            playerCategory = 'Forwards'; break;
-        };
-
-        switch (player.position) {
-          case 1: ; break;
-          case 2 || 3 || 5: ; break;
-          case 6 || 8 || 10: playerCategory = 'Midfielders'; break;
-          case 7 || 9 || 11: playerCategory = 'Forwards'; break;
-        };
+        const { position, category } = getPosition(player.position)
 
         document.querySelector('.js-first-squad').innerHTML = 
           `
@@ -104,7 +104,7 @@ function renderStartingTeam() {
             </div>
           `;  
 
-          document.querySelector('.js-category').innerHTML = playerCategory;
+          document.querySelector('.js-category').innerHTML = category;
         }, delay);
 
       delay += 1500;
@@ -114,7 +114,36 @@ function renderStartingTeam() {
   setTimeout(() => {
     messageDisplay.classList.remove('messages');
     document.querySelector('.js-category').classList.remove('category');
-    document.querySelector('.js-squad').innerHTML = '';
+    document.querySelector('.js-first-squad').innerHTML = '';
 
   }, delay);
 };
+
+
+
+
+
+// generating squad HTML
+
+
+const goalkeepers = players.find(cat => cat.category === 'goalkeepers');
+const selectedGoalKeeper = goalkeepers.players.reduce((bestPlayer, player) => {
+  return player.rating > bestPlayer.rating ? player : bestPlayer
+});
+
+
+const {position, category} = getPosition(selectedGoalKeeper.position);
+
+document.querySelector('.js-goalkeeper-row')
+.innerHTML = `
+  <div class="player">
+    <img src="${selectedGoalKeeper.image}" alt="" />
+    <div class="player-details">
+      <div class="name">${selectedGoalKeeper.name}</div>
+      <div class = "player-info">
+        <div class= "position">${position}</div>
+        <div class="rating">${selectedGoalKeeper.rating}</div>
+      </div>
+    </div>
+  </div>
+`
