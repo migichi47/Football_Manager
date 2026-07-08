@@ -16,42 +16,18 @@
     <div class="sidebar">
     </div>
 
-  
-  
-
-
     <!-- containers for generated HTMLs -->
     <div class="js-category"></div>
     <div class="js-first-squad"></div>
     <div class="js-messages"></div>
 
 
-    <div class="button-container">
-      <button class="js-substitutes-btn substitutes-btn">Substitutes</button>
-      <button class="formation-btn">Change Formation</button>
-      <button class="auto-pick-btn">Auto Pick</button>
+    <div class="button-container js-button-container">
     </div>
 
 
-    <div class="squad">
-      <div class="manager-section">
-        <!-- manager -->
-        <div class="manager">
-          <img src="data/images/manager_icon.png" alt="" />
-          <div class="manager_details">
-            <div class="name">Manager</div>
-            <div class="xp">0 xp</div>
-          </div>
-        </div>
-
-        <!-- formation details -->
-        <div class="formation-details">
-          <div class="team-name">Guler FC</div>
-          <div class="formation">4-3-3</div>
-          <div class="playstyle">Long ball counter</div>
-        </div>
-      </div>
-
+    <div class="js-squad">
+      <div class="manager-section js-manager-section"></div> 
       <hr>
 
       <!-- players in formation squad -->
@@ -67,6 +43,8 @@
           <button class="js-substitutes-close-btn substitutes-close-btn">✖</button>
         </div>
         <div class="substitutes js-substitutes"></div>
+      </div>
+    </div> 
 
   <script type="module" src="/scripts/squad.js"></script>
 </body>

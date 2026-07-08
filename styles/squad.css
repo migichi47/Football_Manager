@@ -74,6 +74,10 @@
 
 hr {
   width: 100%;
+  opacity: 0;
+}
+
+.hr-visible {
   opacity: 0.5;
 }
 

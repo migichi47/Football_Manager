@@ -1,6 +1,8 @@
 import { renderSidebar } from "./utils/sidebar.js";
 import { players } from "../data/players.js";
 
+let substitutes = [];
+
 document.addEventListener('DOMContentLoaded', () => {
   renderSidebar();
 });
@@ -67,6 +69,8 @@ let isNewUser = localStorage.getItem('userState') || 'true';
 if (isNewUser === 'true') {
   renderStartingTeam();
   localStorage.setItem('userState', 'false');
+} else {
+  renderSquad();
 }
 
 // localStorage.removeItem('userState');
@@ -134,15 +138,13 @@ function renderStartingTeam() {
     messageDisplay.classList.remove('messages');
     document.querySelector('.js-category').classList.remove('category');
     document.querySelector('.js-first-squad').innerHTML = '';
-
+    renderSquad();
   }, delay);
 };
 
 
 
 // generating squad HTML
-
-let substitutes = [];
 
 
 function renderPlayers(categoryName, count, containerSelector) {
@@ -185,12 +187,40 @@ function renderPlayers(categoryName, count, containerSelector) {
   container.innerHTML = html;
 }
 
-renderPlayers('goalkeepers', 1, '.js-goalkeeper-row');
-renderPlayers('defenders', 4, '.js-defenders-row');
-renderPlayers('midfielders', 3, '.js-midfielders-row');
-renderPlayers('forwards', 3, '.js-forwards-row');
+function renderSquad() {
+  renderPlayers('goalkeepers', 1, '.js-goalkeeper-row');
+  renderPlayers('defenders', 4, '.js-defenders-row');
+  renderPlayers('midfielders', 3, '.js-midfielders-row');
+  renderPlayers('forwards', 3, '.js-forwards-row');
 
+  document.querySelector('.js-manager-section').innerHTML = `
+    <!-- manager -->
+    <div class="manager">
+      <img src="data/images/manager_icon.png" alt="" />
+      <div class="manager_details">
+        <div class="name">Manager</div>
+        <div class="xp">0 xp</div>
+      </div>
+    </div>
 
+    <!-- formation details -->
+    <div class="formation-details">
+      <div class="team-name">Guler FC</div>
+      <div class="formation">4-3-3</div>
+      <div class="playstyle">Long ball counter</div>
+    </div>
+  `;
+
+  document.querySelector('.js-button-container').innerHTML = `
+    <button class="js-substitutes-btn substitutes-btn">Substitutes</button>
+    <button class="formation-btn">Change Formation</button>
+    <button class="auto-pick-btn">Auto Pick</button>
+  `;
+
+  document.querySelector('.js-squad').classList.add('squad');
+
+  document.querySelector('hr').classList.add('hr-visible');
+}
 
 // substitutes
 
