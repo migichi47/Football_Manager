@@ -1,30 +1,36 @@
 import { renderSidebar } from "./utils/sidebar.js";
-import { allPlayers } from "../data/players.js";
+import { generateFirstPlayers } from '../data/players.js'
 
+
+let idCounter = 1;
+let isNewUser = JSON.parse(localStorage.getItem('isNewUser') ?? 'true');
+let players;
 let substitutes = [];
-
-// generate first players
-function generateFirstPlayers(structure) {
-  return structure.map(({category, count}) => {
-    const {selected, remaining} = getTopPlayers(category, count, allPlayers);
-
-    return {
-      category,
-      players: selected,
-    }
-  })
-}
-
 const squadStructure = [
-  { category: 'goalkeepers', count: 1 },
-  { category: 'defenders', count: 4 },
-  { category: 'midfielders', count: 3 },
-  { category: 'forwards', count: 3 },
+  { category: 'goalkeepers', count: 2 },
+  { category: 'defenders', count: 6 },
+  { category: 'midfielders', count: 5 },
+  { category: 'forwards', count: 5 },
 ];
 
+if (isNewUser) {
+  players = generateFirstPlayers(squadStructure);
+  localStorage.setItem('players', JSON.stringify(players));
+  renderStartingTeam(players);
+  localStorage.setItem('isNewUser', JSON.stringify(false));
+} 
+else {
+  players = JSON.parse(localStorage.getItem('players'));
+  renderSquad();
+}
 
-const players = generateFirstPlayers(squadStructure);
-console.log(players);
+// localStorage.removeItem('isNewUser');
+
+players.forEach(category => {
+  category.players.forEach(player => {
+    player.id = idCounter++;
+  });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   renderSidebar();
@@ -83,22 +89,11 @@ function getTopPlayers(categoryName, count, players) {
     }
 }
 
-let isNewUser = localStorage.getItem('userState') || 'true';
-
-if (isNewUser === 'true') {
-  renderStartingTeam(players);
-  localStorage.setItem('userState', 'false');
-} else {
-  renderSquad();
-}
-
-// localStorage.removeItem('userState');
-
 
 // function to render new gamers
 function renderStartingTeam(players) {
   const messages = [
-    'You have been given a starting squad of 16 EPL players',
+    'You have been given a starting squad of 18 EPL players',
     'Goalkeepers',
     'Defenders',
     'Midfielders',
@@ -117,6 +112,7 @@ function renderStartingTeam(players) {
 
   players.forEach((category) => {
     category.players.forEach((player) => {
+
 
       setTimeout(() => {
 
@@ -169,7 +165,10 @@ function renderStartingTeam(players) {
 function renderPlayers(categoryName, count, containerSelector) {
   const {selected, remaining} = getTopPlayers(categoryName, count, players);
   let selectedPlayers = selected;
-  substitutes.push(...remaining);
+  substitutes.push({
+    category: categoryName,
+    players: remaining,
+  });
 
   const container = document.querySelector(containerSelector);
   if (!container || selectedPlayers.length === 0) return;
@@ -255,8 +254,9 @@ document.querySelector('.js-substitutes-close-btn').addEventListener('click', ()
 
 // rendering the remaining players as substitutes
 
+console.log(substitutes);
 substitutes.forEach((category) => {
-  category.forEach((substitute) => {
+  category.players.forEach((substitute) => {
     let addedClass = 'player-normal';
     if(substitute.rating >= 75 && substitute.rating < 80 ) {
         addedClass = 'player-rare';

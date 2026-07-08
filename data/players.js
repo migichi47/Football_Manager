@@ -1,10 +1,9 @@
-export let allPlayers = [
+let allPlayers = [
   // Goalkeepers
   {
     category: 'goalkeepers',
     players: [
       {
-        id: 1,
         name: 'Leno',
         fullname: 'Bernd Leno',
         rating: 80,
@@ -13,12 +12,75 @@ export let allPlayers = [
         position: 1,
       },
       {
-        id: 2,
         name: 'Henderson',
         fullname: 'Dean Henderson',
         rating: 81,
         club: 'Crystal Palace',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqhtZQDR2dM7ynYhuow65tdfLH9xHwe0R8FZQAKCWbGw&s=10',
+        position: 1,
+      },
+      {
+        name: 'Sels',
+        fullname: 'Matz Sels',
+        rating: 83,
+        club: 'Nottingham',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbsocGSTTxdSlXm95IJHNVagyZbQJqK4vNeZGeMU9xDQ&s=10',
+        position: 1,
+      },
+      {
+        name: 'Martinez',
+        fullname: 'Emiliano Martinez',
+        rating: 85,
+        club: 'Aston Villa',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjq3GSpg0P9OZ4xEla1K6VGzpAgB3wHbvafhS2jeVImw&s=10',
+        position: 1,
+      },
+      {
+        name: 'Raya',
+        fullname: 'David Raya',
+        rating: 87,
+        club: ']Arsenal',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPCB0sgajGShNuUdgcvc9Bh3bd6noToLRt6jkzUtMHMA&s=10',
+        position: 1,
+      },
+      {
+        name: 'Alisson',
+        fullname: 'Alisson',
+        rating: 89,
+        club: 'Liverpool',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XJMBvfpb_DzgCpt8p6hv453jGldlxzEVaBalUz7uSA&s=10',
+        position: 1,
+      },
+      {
+        name: 'Donnarumma',
+        fullname: 'Gianluigi Donnarumma',
+        rating: 89,
+        club: 'Man City',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd29iJx4sU0VG8SrthhTFXSdFi2a0Xu-3Siu8uUtS5nQ&s=10',
+        position: 1,
+      },
+      {
+        name: 'Verbruggen',
+        fullname: 'Bart Verbruggen',
+        rating: 78,
+        club: 'Brighton',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7iJNJ_PrZwugeTZNfGrp86TC5V7UbMBopSQtRUQl4zw&s=10',
+        position: 1,
+      },
+      {
+        name: 'Roefs',
+        fullname: 'Robin Roefs',
+        rating: 74,
+        club: 'Sunderland',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPvJx9MnICQYDO98x7CDFzfcqq00YpW2VWxspfJEeHJA&s=10',
+        position: 1,
+      },
+      {
+        name: 'Kelleher',
+        fullname: 'Caoimhín Odhrán',
+        rating: 79,
+        club: 'Crystal Palace',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOpvKIKUoRMh8DDTs3K5mrQFWx_qaKYBoNBn1Fh88gmg&s=10',
         position: 1,
       }
     ]
@@ -29,7 +91,6 @@ export let allPlayers = [
     category: 'defenders',
     players: [
       {
-        id: 3,
         name: 'Dias',
         fullname: 'Rúben Dias',
         rating: 86,
@@ -38,7 +99,6 @@ export let allPlayers = [
         position: 3,
       },
       {
-        id: 4,
         name: 'Bogle',
         fullname: 'Jayden Bogle',
         rating: 75,
@@ -47,7 +107,6 @@ export let allPlayers = [
         position: 5,
       },
       {
-        id: 5,
         name: 'Kerkez',
         fullname: 'Milos Kerkez',
         rating: 82,
@@ -56,7 +115,6 @@ export let allPlayers = [
         position: 2,
       },
       {
-        id: 6,
         name: 'Keane',
         fullname: 'Michael Keane',
         rating: 73,
@@ -65,7 +123,6 @@ export let allPlayers = [
         position: 3,
       },
       {
-        id: 7,
         name: 'Van Dijk',
         fullname: 'Virgil van Dijk',
         rating: 90,
@@ -79,7 +136,6 @@ export let allPlayers = [
     category: 'midfielders',
     players: [
       {
-        id: 8,
         name: 'Zubimendi',
         fullname: 'Martin Zubimendi',
         rating: 83,
@@ -88,7 +144,6 @@ export let allPlayers = [
         position: 6,
       },
       {
-        id: 9,
         name: 'Ugarte',
         fullname: 'Manuel Ugarte',
         rating: 79,
@@ -97,7 +152,6 @@ export let allPlayers = [
         position: 6,
       },
       {
-        id: 10,
         name: `Caicedo`,
         fullname: `Moses Caicedo`,
         rating: 87,
@@ -106,7 +160,6 @@ export let allPlayers = [
         position: 6,
       },
       {
-        id: 11,
         name: 'Simons',
         fullname: 'Xavi Simons',
         rating: 84,
@@ -115,7 +168,6 @@ export let allPlayers = [
         position: 8,
       },
       {
-        id: 12,
         name: 'Onyeka',
         fullname: 'Frank Onyeka',
         rating: 88,
@@ -129,7 +181,6 @@ export let allPlayers = [
     category: 'forwards',
     players: [
       {
-        id: 13,
         name: 'Marmoush',
         fullname: 'Omar Marmoush',
         rating: 84,
@@ -138,7 +189,6 @@ export let allPlayers = [
         position: 9 || 7,
       },
       {
-        id: 14,
         name: 'Rogers',
         fullname: 'Morgan Rogers',
         rating: 82,
@@ -147,7 +197,6 @@ export let allPlayers = [
         position: 7 || 8,
       },
       {
-        id: 15,
         name: 'Savinho',
         fullname: 'Sávio Moreira de Oliveira',
         rating: 82,
@@ -158,3 +207,44 @@ export let allPlayers = [
     ]
   },
 ];
+
+// generate first players
+
+
+
+
+function getRandomPlayers(categoryName, count, players) {
+  const category = players.find(cat => cat.category === categoryName);
+
+  if (!category) return [];
+
+  const random = shuffle(category.players);
+
+    return {
+        selected: random.slice(0, count),
+        remaining: random.slice(count),
+    }
+}
+
+// shuffle function that i don't know how it works
+function shuffle(array) {
+  const copy = array.slice();
+
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+export function generateFirstPlayers(structure) {
+  return structure.map(({category, count}) => {
+    const {selected, remaining} = getRandomPlayers(category, count, allPlayers);
+
+    return {
+      category,
+      players: selected,
+    }
+  })
+}
+
