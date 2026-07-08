@@ -150,15 +150,26 @@ function renderPlayers(categoryName, count, containerSelector) {
 
   selectedPlayers.forEach(player => {
     const { position } = getPosition(player.position);
+    let addedClass = 'player-normal';
+
+    if(player.rating >= 75 && player.rating < 80 ) {
+        addedClass = 'player-rare';
+    } else if(player.rating >= 80 && player.rating < 85 ) {
+        addedClass = 'player-elite';
+    } else if(player.rating >= 85 && player.rating < 90 ) {
+        addedClass = 'player-legendary';
+    } else if(player.rating >= 90) {
+        addedClass = 'player-superstar';
+    } 
 
     html += `
-      <div class="player">
+      <div class="player ${addedClass}">
         <img src="${player.image}" alt="" />
         <div class="player-details">
           <div class="name">${player.name}</div>
           <div class="player-info">
-            <div class="position">${position}</div>
-            <div class="rating">${player.rating}</div>
+            <div class="position ${addedClass}">${position}</div>
+            <div class="rating ${addedClass}">${player.rating}</div>
           </div>
         </div>
       </div>
