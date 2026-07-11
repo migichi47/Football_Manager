@@ -211,13 +211,10 @@ let allPlayers = [
 // generate first players
 
 
-
-
 function getRandomPlayers(categoryName, count, players) {
   const category = players.find(cat => cat.category === categoryName);
 
   if (!category) return [];
-
   const random = shuffle(category.players);
 
     return {

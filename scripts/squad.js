@@ -1,11 +1,10 @@
 import { renderSidebar } from "./utils/sidebar.js";
 import { generateFirstPlayers } from '../data/players.js'
 
-
-let idCounter = 1;
 let isNewUser = JSON.parse(localStorage.getItem('isNewUser') ?? 'true');
 let players;
 let substitutes = [];
+
 const squadStructure = [
   { category: 'goalkeepers', count: 2 },
   { category: 'defenders', count: 6 },
@@ -13,18 +12,15 @@ const squadStructure = [
   { category: 'forwards', count: 5 },
 ];
 
+// getting a new starting squad for new users
 if (isNewUser) {
+  let idCounter = 1;
   players = generateFirstPlayers(squadStructure);
 
-  let idCounter = 1;
-  players.forEach(category => {
-    category.players.forEach(player => {
-      player.id = idCounter++;
-    });
-  });
   localStorage.setItem('players', JSON.stringify(players));
   renderStartingTeam(players);
   localStorage.setItem('isNewUser', JSON.stringify(false));
+
 } 
 else {
   players = JSON.parse(localStorage.getItem('players'));
@@ -33,11 +29,6 @@ else {
 
 // localStorage.removeItem('isNewUser');
 
-players.forEach(category => {
-  category.players.forEach(player => {
-    player.id = idCounter++;
-  });
-});
 
 document.addEventListener('DOMContentLoaded', () => {
   renderSidebar();
@@ -88,7 +79,7 @@ function getTopPlayers(categoryName, count, players) {
   if (!category) return [];
 
   const sorted =  category.players
-    .slice().sort((a, b) => { b.rating - a.rating });
+    .slice().sort((a, b) => { return b.rating - a.rating });
 
     return {
         selected: sorted.slice(0, count).sort((a,b) => b.position - a.position),
@@ -196,7 +187,7 @@ function renderPlayers(categoryName, count, containerSelector) {
     } 
 
     html += `
-      <div class="player ${addedClass} js-player" id="${player.name}">
+      <div class="player ${addedClass} js-player" data-id="${player.id}">
         <img src="${player.image}" alt="" />
         <div class="player-details">
           <div class="name">${player.name}</div>
@@ -304,42 +295,39 @@ document.addEventListener('click', (e) => {
 
   if(!playerCard) return;
 
-  const id = Number(playerCard.dataset.id);
+  selectedId = playerCard.dataset.id;
+  console.log(selectedId)
 
-  if(selectedId = null) {
-    selectedId = id;
+  if(!selectedId) {
     selectedElement = playerCard;
     playerCard.classList.add('active');
     return;
+    console.log(selectedId);
   }
 
-  if(selectedId === id) return;
 
   const player1 = findPlayerById(selectedId);
-  const player2 = findPlayerById(id);
+  console.log(player1);
 
   // const temporalPosition = player1.position;
   // player1.position = player2.position;
   // player2.position = temporalPosition;
-  console.log(player1, player2)
 
   localStorage.setItem('players', JSON.stringify(players));
   renderSquad();
 
-  selectedElement.classList.remove('active');
+  // selectedElement.classList.remove('active');
   selectedId = null;
   selectedElement = null;
 })
 
 
+// find a player by their id, upon click
 function findPlayerById(id) {
-  players.forEach(category => {
-    category.players.forEach(player => {
-      if(player.id === id) {
-        return player;
-      }
-    })
-  })
-}
+  for (const category of players) {
+    const found = category.players.find(player => player.id == id);
+    if (found) return found;
+  } return null;
+};
 
 
