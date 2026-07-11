@@ -296,7 +296,6 @@ document.addEventListener('click', (e) => {
   if(!playerCard) return;
 
   selectedId = playerCard.dataset.id;
-  console.log(selectedId)
 
   if(!selectedId) {
     selectedElement = playerCard;
@@ -307,7 +306,6 @@ document.addEventListener('click', (e) => {
 
 
   const player1 = findPlayerById(selectedId);
-  console.log(player1);
 
   // const temporalPosition = player1.position;
   // player1.position = player2.position;
