@@ -5,3 +5,7 @@ renderSidebar();
 document.querySelector('.js-squad').addEventListener('click', () => {
   window.location.href = '/squad.html';
 });
+
+document.querySelector('.js-transfers').addEventListener('click', () => {
+  window.location.href = '/transfers.html';
+});

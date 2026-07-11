@@ -25,7 +25,7 @@ p {
 }
 
 .squad-preview-container,
-.notifications-preview-container,
+.transfers-preview-container,
 .profile-preview-container,
 .store-preview-container {
   position: relative;
@@ -46,21 +46,8 @@ p {
   background: url('https://png.pngtree.com/png-vector/20221209/ourmid/pngtree-account-profile-icon-use-for-web-app-ui-png-image_6518178.png');
 }
 
-.notifications-preview {
-  background: url('https://img.icons8.com/ios11/512/appointment-reminders--v2.png');
-}
-
-.notifications-count {
-  font-size: 3rem;
-  color: rgb(0, 255, 76);
-  background-color: black;
-  position: absolute;
-  width: 50px;
-  height: 4px;
-  border-radius: 50%;
-  padding-bottom: 50px;
-  top: 20px;
-  margin-left: 45%;
+.transfers-preview {
+  background: url('../data/images/transfer-market-image.png');
 }
 
 .store-preview {
@@ -69,7 +56,7 @@ p {
 
 .store-preview,
 .squad-preview,
-.notifications-preview,
+.transfers-preview,
 .profile-preview {
   height: 80%;
   background-size: cover;
