@@ -34,10 +34,13 @@ body {
 }
 
 .menu-btn {
-  height: 30px;
-  width: 80px;
-  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.763);
+  height: 20px;
+  width: 50px;
+  font-size: 10px;
   cursor: pointer;
+  border: 0;
+  border-radius: 10px;
 }
 
 .close-btn {
